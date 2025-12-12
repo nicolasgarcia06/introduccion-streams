@@ -48,7 +48,9 @@ public class DoubleStreamsKata {
      * (Piensa: seleccionar → lista)
      */
     public List<Double> tiemposPositivos() {
-        throw new UnsupportedOperationException("TODO");
+    	 return tiempos.stream()
+                 .filter(t -> t > 0)
+                 .toList();
     }
 
     /**

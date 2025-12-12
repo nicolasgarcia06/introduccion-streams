@@ -46,7 +46,9 @@ public class ObjectStreamsKata {
      * (Piensa: seleccionar → count)
      */
     public long contarRecomendadas() {
-        throw new UnsupportedOperationException("TODO");
+    	return playlist.stream()
+                .filter(s -> s.getRating() >= 4.5)
+                .count();
     }
 
     /**

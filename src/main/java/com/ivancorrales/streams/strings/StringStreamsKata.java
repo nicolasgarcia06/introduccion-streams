@@ -56,7 +56,9 @@ public class StringStreamsKata {
      * - Conserva el orden original de la lista.
      */
     public List<String> paisesQueTerminanEnA() {
-        throw new UnsupportedOperationException("TODO");
+    	return paises.stream()
+                .filter(p -> p.endsWith("a"))
+                .toList();
     }
 
     /**

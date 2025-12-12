@@ -46,7 +46,9 @@ public class NumberStreamsKata {
      * (Piensa: seleccionar → lista)
      */
     public List<Integer> soloPositivos() {
-        throw new UnsupportedOperationException("TODO");
+    	return puntos.stream()
+                .filter(p -> p > 0)
+                .toList();
     }
 
     /**
