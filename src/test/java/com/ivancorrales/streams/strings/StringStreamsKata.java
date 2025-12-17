@@ -84,7 +84,8 @@ public class StringStreamsKata {
      * - ordenados alfabéticamente
      */
     public List<String> paisesMinusculasUnicosOrdenados() {
-       
+        
+    	
         return paises
         		.stream()
         		.distinct()
@@ -134,11 +135,10 @@ public class StringStreamsKata {
      * - Aquí NO hace falta split ni flatMap: ya trabajas con palabras sueltas.
      */
     public List<String> hashtagsUnicosOrdenados() {
-return tokens 
+return tokens
 		.stream()
-		.map(h->h.trim())
-		.map(h->h.toLowerCase())
 		.filter(h -> h.startsWith("#"))
+		.map(h->h.trim().toLowerCase())
 		.distinct()
 		.sorted()
 		.toList();
@@ -176,14 +176,13 @@ return tokens
      * - Si no hay hashtags, devuelve 0.0.
      */
     public double mediaLongitudHashtagsUnicos() {
-     return tokens
-    		 .filter(h -> h.startsWith("#"))
-    		 .stream()
-    		 .distinct()
-    		 .mapToInt(h->h.lenght())
-    		 .avarage();
-    		 
-
+    	return tokens.stream()
+    	    	.filter(p -> p.startsWith("#"))
+    	    	.distinct()
+    	    	.mapToInt(String::length)
+    	    	.average()
+    	    	.orElse(0.0);
+    
     }
 
     /**
@@ -197,7 +196,15 @@ return tokens
      * - Si no hay hashtags, devuelve 0.
      */
     public int longitudMaximaHashtag() {
-        throw new UnsupportedOperationException("TODO");
+    	return tokens 
+    			.stream()
+    			.filter(p -> p.startsWith("#"))
+    			.distinct()
+    			.mapToInt(String::length)
+    			.max().orElse(0);
+    	
+    	
+     
     }
     
     /**
@@ -217,7 +224,7 @@ return tokens
      * - Necesitas flatMap para convertirlo en Stream<String>
      */
     public List<String> comentariosUnicosLimpiosOrdenados() {
-        throw new UnsupportedOperationException("TODO");
+        
     }
 
     /**
